@@ -27,9 +27,9 @@
 # THE POSSIBILITY OF SUCH DAMAGE.
 
 import os
-import simplejson
+import json
 
-def load(location, option):
+def load(location, option=False):
     '''Return a pickledb object. location is the path to the json file.'''
     return pickledb(location, option)
 
@@ -193,9 +193,9 @@ class pickledb(object):
 
     def _loaddb(self):
         '''Load or reload the json info from the file'''
-        self.db = simplejson.load(open(self.loco, 'rb'))
+        self.db = json.load(open(self.loco, 'rb'))
 
     def _dumpdb(self, forced):
         '''Write/save the json dump into the file'''
         if forced:
-           simplejson.dump(self.db, open(self.loco, 'wt'))
+           json.dump(self.db, open(self.loco, 'wt'))
