@@ -55,4 +55,4 @@ setup(name = "pickleDB",
         "Intended Audience :: Developers",
         "Topic :: Database" ],
     py_modules=['pickledb'],
-    install_requires=['simplejson'])
+    install_requires=[])
