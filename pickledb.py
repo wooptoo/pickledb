@@ -29,22 +29,22 @@
 import os
 import json
 
-def load(location, option=False):
+def load(location, autocommit=False):
     '''Return a pickledb object. location is the path to the json file.'''
-    return pickledb(location, option)
+    return pickledb(location, autocommit)
 
 class pickledb(object):
 
-    def __init__(self, location, option):
+    def __init__(self, location, autocommit):
         '''Creates a database object and loads the data from the location path.
         If the file does not exist it will be created on the first update.'''
-        self.load(location, option)
+        self.load(location, autocommit)
 
-    def load(self, location, option):
+    def load(self, location, autocommit):
         '''Loads, reloads or changes the path to the db file.'''
         location = os.path.expanduser(location)
         self.loco = location
-        self.fsave = option
+        self.fsave = autocommit
         if os.path.exists(location):
             self._loaddb()
         else:
